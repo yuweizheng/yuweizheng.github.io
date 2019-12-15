@@ -249,6 +249,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/15/algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhengyuwei">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/15/algorithm/" itemprop="url">algorithm</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-15T15:55:11+08:00">
+                2019-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="bit-operation"><a href="#bit-operation" class="headerlink" title="bit operation"></a>bit operation</h1><p>//消掉最右边的1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">n &amp; n-1</span><br></pre></td></tr></table></figure>
+
+<p>//不创建临时变量的情况下进行交换两个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a ^= b; // a 中存放两数互异的点位</span><br><span class="line">b ^= a; // 取反 b 中不同于 a 的点位，也就是实现了 b = a</span><br><span class="line">a ^= b; // 取反 a 中不同于 b 的点位，也就是实现了 a = b</span><br></pre></td></tr></table></figure>
+
+<p>//加法  进位 和 当前位分别计算，再当成两个操作数继续相加<br>int plus(int a, int b) {<br>    int aTemp = 0, bTemp = 0;</p>
+<pre><code>while (b != 0) {
+    aTemp = a ^ b;
+    bTemp = (a &amp; b) &lt;&lt; 1;
+    a = aTemp;
+    b = bTemp;
+}
+return a;</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/front-end/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -342,7 +475,7 @@
       
         
           
-            <h3 id="chrome-调试"><a href="#chrome-调试" class="headerlink" title="chrome 调试"></a>chrome 调试</h3><p>instutorial <code>https://juejin.im/entry/58072e74a0bb9f0058a137ed</code><br><code>sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222</code></p>
+            <h3 id="chrome-调试"><a href="#chrome-调试" class="headerlink" title="chrome 调试"></a>chrome 调试</h3><p>instutorial <code>https://juejin.im/entry/58072e74a0bb9f0058a137ed</code><br><code>https://juejin.im/post/5cbe60fd6fb9a0324b27bda2</code><br><code>sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222</code></p>
 <p>另开一个新窗口,输入url<br><code>localhost:9222</code> </p>
 <h3 id="chrome-devtools"><a href="#chrome-devtools" class="headerlink" title="chrome devtools"></a>chrome devtools</h3><p><code>chrome-devtools://devtools/bundled/inspector.html?ws=127.0.0.1:9224</code></p>
 <h3 id="CDT-V8"><a href="#CDT-V8" class="headerlink" title="CDT V8"></a>CDT V8</h3><p><code>about://inspect</code> -&gt; <code>Discover Network target</code> -&gt;configure</p>
@@ -1007,7 +1140,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
