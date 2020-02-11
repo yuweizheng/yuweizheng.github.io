@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="zhengyuwei">
 <meta property="og:description" content="读文件一行读取全部文件内容： 123std::ifstream in(filepath);std::string content( (std::istreambuf_iterator&amp;lt;char&amp;gt;(in)),                        (std::istreambuf_iterator&amp;lt;char&amp;gt;()));  mmap 物理磁盘映射到虚拟空间，减少IO时用">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-21T09:07:56.420Z">
+<meta property="og:updated_time" content="2019-12-31T09:56:37.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cplusplus使用">
 <meta name="twitter:description" content="读文件一行读取全部文件内容： 123std::ifstream in(filepath);std::string content( (std::istreambuf_iterator&amp;lt;char&amp;gt;(in)),                        (std::istreambuf_iterator&amp;lt;char&amp;gt;()));  mmap 物理磁盘映射到虚拟空间，减少IO时用">
@@ -353,7 +353,7 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Its the syntax of the language. C++ allows you to create your own Operators</span><br><span class="line"></span><br><span class="line">For example:</span><br><span class="line"></span><br><span class="line">struct A &#123;</span><br><span class="line">    bool operator==(const int i);</span><br><span class="line">    bool operator==(const char c);</span><br><span class="line">    bool operator==(const FOO&amp; f);</span><br><span class="line">&#125;</span><br><span class="line">This allows use to conveniently compare our type which a syntax that looks nicer. A a; if(a == 5) &#123;&#125; the alternative is implementing an equals(int value) methods all over that looks something like A a; if(a.equals(5)) &#123;&#125;.</span><br><span class="line"></span><br><span class="line">The same is true for casting.</span><br><span class="line"></span><br><span class="line">struct Angle &#123;</span><br><span class="line">    float angle;</span><br><span class="line">    operator const float() const &#123;return angle;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Angle theta;</span><br><span class="line">float radius = 1.0f;</span><br><span class="line">float x = radius*cos(theta);</span><br><span class="line">float y = radius*sin(theta);</span><br><span class="line">In conclusion its just a nice feature of the language that makes our code look much nicer and more readable.</span><br></pre></td></tr></table></figure>
 
-
+<h1 id="完美转发"><a href="#完美转发" class="headerlink" title="完美转发"></a>完美转发</h1>
       
     </div>
     
@@ -462,7 +462,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -508,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#读文件"><span class="nav-number">1.</span> <span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pointer-to-class-data-member"><span class="nav-number">2.</span> <span class="nav-text">pointer to class data member ::*</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#operator-conversion-operator-const-wchar-t-const"><span class="nav-number">3.</span> <span class="nav-text">operator conversion operator const wchar_t*() const</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#读文件"><span class="nav-number">1.</span> <span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pointer-to-class-data-member"><span class="nav-number">2.</span> <span class="nav-text">pointer to class data member ::*</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#operator-conversion-operator-const-wchar-t-const"><span class="nav-number">3.</span> <span class="nav-text">operator conversion operator const wchar_t*() const</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完美转发"><span class="nav-number">4.</span> <span class="nav-text">完美转发</span></a></li></ol></div>
             
 
           </div>
@@ -528,7 +528,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
