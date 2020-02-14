@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="zhengyuwei">
 <meta property="og:description" content="chrome 调试instutorial https://juejin.im/entry/58072e74a0bb9f0058a137edhttps://juejin.im/post/5cbe60fd6fb9a0324b27bda2sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debuggi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-12T03:48:29.675Z">
+<meta property="og:updated_time" content="2020-02-14T02:43:17.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="front-end">
 <meta name="twitter:description" content="chrome 调试instutorial https://juejin.im/entry/58072e74a0bb9f0058a137edhttps://juejin.im/post/5cbe60fd6fb9a0324b27bda2sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debuggi">
@@ -345,6 +345,37 @@
 <p>另开一个新窗口,输入url<br><code>localhost:9222</code> </p>
 <h3 id="chrome-devtools"><a href="#chrome-devtools" class="headerlink" title="chrome devtools"></a>chrome devtools</h3><p><code>chrome-devtools://devtools/bundled/inspector.html?ws=127.0.0.1:9224</code></p>
 <h3 id="CDT-V8"><a href="#CDT-V8" class="headerlink" title="CDT V8"></a>CDT V8</h3><p><code>about://inspect</code> -&gt; <code>Discover Network target</code> -&gt;configure</p>
+<hr>
+<h3 id="v8-inspector移植入安卓端小游戏引擎"><a href="#v8-inspector移植入安卓端小游戏引擎" class="headerlink" title="v8-inspector移植入安卓端小游戏引擎"></a>v8-inspector移植入安卓端小游戏引擎</h3><p>目前进入bo分支<br>删除原’cc/cube-mario/source/actuator/inspector’，并根据报错删去所有引用即可，rebuild一下<br>在同位置倒入inspector文件夹， git add， 以及修改cmakelist, 将inspector目录下的文件也加入编译行列<br>rebuild， 根据报错，引入inspector所需的uv库</p>
+<hr>
+<h4 id="编译libuv-的android-arm-arm64版本"><a href="#编译libuv-的android-arm-arm64版本" class="headerlink" title="编译libuv 的android  arm , arm64版本"></a>编译libuv 的android  arm , arm64版本</h4><p>参考<a href="https://blog.csdn.net/huweijian5/article/details/79068177" target="_blank" rel="noopener">https://blog.csdn.net/huweijian5/article/details/79068177</a> 和 <a href="https://github.com/libuv/libuv" target="_blank" rel="noopener">https://github.com/libuv/libuv</a><br>生成的库在libuv-1.31.0/out’<br>将头文件、生成的库分别导入，并更改cmakelist</p>
+<hr>
+<h4 id="编译openssl的-android-arm-arm64版本"><a href="#编译openssl的-android-arm-arm64版本" class="headerlink" title="编译openssl的 android arm arm64版本"></a>编译openssl的 android arm arm64版本</h4><p>参考<a href="https://segmentfault.com/a/1190000005747285" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005747285</a> 和<br><a href="https://wiki.openssl.org/index.php/Android#Prepare_the_OpenSSL_Sources" target="_blank" rel="noopener">https://wiki.openssl.org/index.php/Android#Prepare_the_OpenSSL_Sources</a><br>和<a href="https://www.jianshu.com/p/ac5b2821648f" target="_blank" rel="noopener">https://www.jianshu.com/p/ac5b2821648f</a></p>
+<h5 id="error-openssl-assert-h-No-such-file-or-directory-include-lt-assert-h-gt"><a href="#error-openssl-assert-h-No-such-file-or-directory-include-lt-assert-h-gt" class="headerlink" title="error openssl assert.h: No such file or directory #include &lt;assert.h&gt;"></a>error <code>openssl assert.h: No such file or directory #include &lt;assert.h&gt;</code></h5><p>assert.h does exist in ./sysroot/usr/include/assert.h, but is not found by gcc.<br>maybe caused by android-ndk-r16b</p>
+<blockquote>
+<p>The Android NDK has changed to Unified Headers:<br><a href="https://android.googlesource.com/platform/ndk.git/+/master/docs/UnifiedHeaders.md" target="_blank" rel="noopener">https://android.googlesource.com/platform/ndk.git/+/master/docs/UnifiedHeaders.md</a></p>
+</blockquote>
+<blockquote>
+<p>In r16b there now only a single set of system headers that is used for all API levels.</p>
+</blockquote>
+<p>try android-ndk-r14b succeed for arm<br>when build  for arm64 fail</p>
+<h4 id="参考https-stackoverflow-com-questions-52717228-how-to-compile-openssl-1-1-1-for-android"><a href="#参考https-stackoverflow-com-questions-52717228-how-to-compile-openssl-1-1-1-for-android" class="headerlink" title="参考https://stackoverflow.com/questions/52717228/how-to-compile-openssl-1-1-1-for-android"></a>参考<a href="https://stackoverflow.com/questions/52717228/how-to-compile-openssl-1-1-1-for-android" target="_blank" rel="noopener">https://stackoverflow.com/questions/52717228/how-to-compile-openssl-1-1-1-for-android</a></h4><p>需下载wget ，brew install出bug<br><code>Error: Permission denied @ apply2files - /usr/local/lib/node_modules/hexo/node_modules/extglob/lib/.DS_Store</code><br>brew doctor ，将warning解决完， 依然出错</p>
+<h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><blockquote>
+<p>Error: EACCES: permission denied, mkdir ‘/usr/local/lib/node_modules/node-sass/build’<br>Ask Question<br>Solution :-</p>
+</blockquote>
+<blockquote>
+<p>You need to change ownership of node_modules, because you use sudo npm install -g node-sass so its ownership set to root,</p>
+</blockquote>
+<blockquote>
+<p>To change ownership to current user as group -</p>
+</blockquote>
+<blockquote>
+<p>sudo chown -R root:YOUR_USERNAME /usr/local/lib/node_modules/</p>
+</blockquote>
+<blockquote>
+<p>sudo chmod -R 775 /usr/local/lib/node_modules/<br>And never use sudo for npm related query.</p>
+</blockquote>
+<p>ndk使用android-ndk-r19c<br>error no NDK arm-linux-androideabi-gcc<br>解决方法：change ‘linux-x86_64’ to ‘darwin-x86_64’</p>
 
       
     </div>
@@ -504,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-调试"><span class="nav-number">1.</span> <span class="nav-text">chrome 调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-devtools"><span class="nav-number">2.</span> <span class="nav-text">chrome devtools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDT-V8"><span class="nav-number">3.</span> <span class="nav-text">CDT V8</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-调试"><span class="nav-number">1.</span> <span class="nav-text">chrome 调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-devtools"><span class="nav-number">2.</span> <span class="nav-text">chrome devtools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDT-V8"><span class="nav-number">3.</span> <span class="nav-text">CDT V8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v8-inspector移植入安卓端小游戏引擎"><span class="nav-number">4.</span> <span class="nav-text">v8-inspector移植入安卓端小游戏引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译libuv-的android-arm-arm64版本"><span class="nav-number">4.1.</span> <span class="nav-text">编译libuv 的android  arm , arm64版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译openssl的-android-arm-arm64版本"><span class="nav-number">4.2.</span> <span class="nav-text">编译openssl的 android arm arm64版本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#error-openssl-assert-h-No-such-file-or-directory-include-lt-assert-h-gt"><span class="nav-number">4.2.1.</span> <span class="nav-text">error openssl assert.h: No such file or directory #include &lt;assert.h&gt;</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考https-stackoverflow-com-questions-52717228-how-to-compile-openssl-1-1-1-for-android"><span class="nav-number">4.3.</span> <span class="nav-text">参考https://stackoverflow.com/questions/52717228/how-to-compile-openssl-1-1-1-for-android</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方案"><span class="nav-number">4.3.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
