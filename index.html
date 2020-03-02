@@ -322,9 +322,10 @@
           
             <p>谷歌云创建</p>
 <p>进入vm的ssh<br>sudo -i<br>vi /etc/ssh/sshd_config<br>输入i进入插入模式，将前两个光标点亮的no改成yes,按esc推出输入模式， :wq保存退出<br>输入passwd<br>更改密码<br>甚至完毕，重启ssh服务<br>systemctl restart sshd</p>
-<p>ssh远程登陆<br>ssh root@ip地址<br>目前使用的vps地址为107.167.191.229 </p>
+<p>ssh远程登陆<br>ssh root@ip地址<br>目前使用的vps地址为107.167.191.229 台湾<br>34.85.44.108 东京</p>
 <p>安装BBR<br>wget -N –no-check-certificate “<a href="https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot;</a> &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</p>
 <p>测试是否成功：Chrome网页版登陆vps shell<br>sudo -i<br>./tcp.sh<br>安装ssr<br>wget -N –no-check-certificate <a href="https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/ssr.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/ssr.sh</a> &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh<br>输入1<br>输入密码<br>输入加密方式，使用默认的： 5.aes-128-ctr<br>协议插件 选择默认 2.auth_sha1_v4<br>之后全部默认</p>
+<p>翻墙时，<a href="mailto:ssh@root34.85.44.108" target="_blank" rel="noopener">ssh@root34.85.44.108</a><br>登上后 ./tcp.sh 启用bbr加速</p>
 
           
         
