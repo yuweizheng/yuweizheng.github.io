@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="chrome 调试instutorial https://juejin.im/entry/58072e74a0bb9f0058a137edhttps://juejin.im/post/5cbe60fd6fb9a0324b27bda2sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debuggi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="front-end">
+<meta property="og:url" content="http://yoursite.com/2019/11/15/front-end/index.html">
+<meta property="og:site_name" content="zhengyuwei">
+<meta property="og:description" content="chrome 调试instutorial https://juejin.im/entry/58072e74a0bb9f0058a137edhttps://juejin.im/post/5cbe60fd6fb9a0324b27bda2sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debuggi">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-03-09T07:11:56.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="front-end">
+<meta name="twitter:description" content="chrome 调试instutorial https://juejin.im/entry/58072e74a0bb9f0058a137edhttps://juejin.im/post/5cbe60fd6fb9a0324b27bda2sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debuggi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/11/15/front-end/">
+
+
+
+
+
+  <title>front-end | zhengyuwei</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhengyuwei</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/front-end/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhengyuwei">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">front-end</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-15T16:43:51+08:00">
+                2019-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="chrome-调试"><a href="#chrome-调试" class="headerlink" title="chrome 调试"></a>chrome 调试</h3><p>instutorial <code>https://juejin.im/entry/58072e74a0bb9f0058a137ed</code><br><code>https://juejin.im/post/5cbe60fd6fb9a0324b27bda2</code><br><code>sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222</code></p>
+<p>另开一个新窗口,输入url<br><code>localhost:9222</code> </p>
+<h3 id="chrome-devtools"><a href="#chrome-devtools" class="headerlink" title="chrome devtools"></a>chrome devtools</h3><p><code>chrome-devtools://devtools/bundled/inspector.html?ws=127.0.0.1:9224</code></p>
+<h3 id="CDT-V8"><a href="#CDT-V8" class="headerlink" title="CDT V8"></a>CDT V8</h3><p><code>about://inspect</code> -&gt; <code>Discover Network target</code> -&gt;configure</p>
+<hr>
+<h3 id="v8-inspector移植入安卓端小游戏引擎"><a href="#v8-inspector移植入安卓端小游戏引擎" class="headerlink" title="v8-inspector移植入安卓端小游戏引擎"></a>v8-inspector移植入安卓端小游戏引擎</h3><p>安卓端CPU架构ttps://<a href="http://www.jianshu.com/p/4b58e41b3948" target="_blank" rel="noopener">www.jianshu.com/p/4b58e41b3948</a></p>
+<hr>
+<h4 id="编译libuv-的android-arm-arm64版本"><a href="#编译libuv-的android-arm-arm64版本" class="headerlink" title="编译libuv 的android  arm , arm64版本"></a>编译libuv 的android  arm , arm64版本</h4><p>参考<a href="https://blog.csdn.net/huweijian5/article/details/79068177" target="_blank" rel="noopener">https://blog.csdn.net/huweijian5/article/details/79068177</a> 和 <a href="https://github.com/libuv/libuv" target="_blank" rel="noopener">https://github.com/libuv/libuv</a><br>生成的库在libuv-1.31.0/out’<br>将头文件、生成的库分别导入，并更改cmakelist</p>
+<p>for armeabi-v7a<br>参考 <a href="https://fucknmb.com/2017/06/04/libuv-NDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" target="_blank" rel="noopener">https://fucknmb.com/2017/06/04/libuv-NDK%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/</a></p>
+<hr>
+<h4 id="编译openssl的-android-arm-arm64版本"><a href="#编译openssl的-android-arm-arm64版本" class="headerlink" title="编译openssl的 android arm arm64版本"></a>编译openssl的 android arm arm64版本</h4><p>参考<a href="https://segmentfault.com/a/1190000005747285" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005747285</a> 和<br><a href="https://wiki.openssl.org/index.php/Android#Prepare_the_OpenSSL_Sources" target="_blank" rel="noopener">https://wiki.openssl.org/index.php/Android#Prepare_the_OpenSSL_Sources</a><br>和<a href="https://www.jianshu.com/p/ac5b2821648f" target="_blank" rel="noopener">https://www.jianshu.com/p/ac5b2821648f</a></p>
+<h5 id="error-openssl-assert-h-No-such-file-or-directory-include-lt-assert-h-gt"><a href="#error-openssl-assert-h-No-such-file-or-directory-include-lt-assert-h-gt" class="headerlink" title="error openssl assert.h: No such file or directory #include &lt;assert.h&gt;"></a>error <code>openssl assert.h: No such file or directory #include &lt;assert.h&gt;</code></h5><p>assert.h does exist in ./sysroot/usr/include/assert.h, but is not found by gcc.<br>maybe caused by android-ndk-r16b</p>
+<blockquote>
+<p>The Android NDK has changed to Unified Headers:<br><a href="https://android.googlesource.com/platform/ndk.git/+/master/docs/UnifiedHeaders.md" target="_blank" rel="noopener">https://android.googlesource.com/platform/ndk.git/+/master/docs/UnifiedHeaders.md</a></p>
+</blockquote>
+<blockquote>
+<p>In r16b there now only a single set of system headers that is used for all API levels.</p>
+</blockquote>
+<p>try android-ndk-r14b succeed for arm<br>when build  for arm64 fail</p>
+<h4 id="最终方案：参考https-stackoverflow-com-questions-52717228-how-to-compile-openssl-1-1-1-for-android"><a href="#最终方案：参考https-stackoverflow-com-questions-52717228-how-to-compile-openssl-1-1-1-for-android" class="headerlink" title="最终方案：参考https://stackoverflow.com/questions/52717228/how-to-compile-openssl-1-1-1-for-android"></a>最终方案：参考<a href="https://stackoverflow.com/questions/52717228/how-to-compile-openssl-1-1-1-for-android" target="_blank" rel="noopener">https://stackoverflow.com/questions/52717228/how-to-compile-openssl-1-1-1-for-android</a></h4><p>需下载wget ，brew install出bug<br><code>Error: Permission denied @ apply2files - /usr/local/lib/node_modules/hexo/node_modules/extglob/lib/.DS_Store</code><br>brew doctor ，将warning解决完， 依然出错</p>
+<h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><blockquote>
+<p>Error: EACCES: permission denied, mkdir ‘/usr/local/lib/node_modules/node-sass/build’<br>Ask Question<br>Solution :-</p>
+</blockquote>
+<blockquote>
+<p>You need to change ownership of node_modules, because you use sudo npm install -g node-sass so its ownership set to root,</p>
+</blockquote>
+<blockquote>
+<p>To change ownership to current user as group -</p>
+</blockquote>
+<blockquote>
+<p>sudo chown -R root:YOUR_USERNAME /usr/local/lib/node_modules/</p>
+</blockquote>
+<blockquote>
+<p>sudo chmod -R 775 /usr/local/lib/node_modules/<br>And never use sudo for npm related query.</p>
+</blockquote>
+<p>ndk使用android-ndk-r19c<br>error no NDK arm-linux-androideabi-gcc<br>解决方法：change ‘linux-x86_64’ to ‘darwin-x86_64’<br>succeed！ 生成arm armv7的动态库</p>
+<hr>
+<h4 id="libZ"><a href="#libZ" class="headerlink" title="libZ"></a>libZ</h4><p> android NDK provide prebuilt libZ.a and libZ.so</p>
+<hr>
+<h4 id="icu"><a href="#icu" class="headerlink" title="icu"></a>icu</h4><h2 id="参考-icu-master-icu4c-readme-html-及https-gist-github-com-DanielSerdyukov-188d47e29150622352f1-以及之前编译libuv的教程"><a href="#参考-icu-master-icu4c-readme-html-及https-gist-github-com-DanielSerdyukov-188d47e29150622352f1-以及之前编译libuv的教程" class="headerlink" title="参考/icu-master/icu4c/readme.html 及https://gist.github.com/DanielSerdyukov/188d47e29150622352f1 以及之前编译libuv的教程"></a>参考/icu-master/icu4c/readme.html 及<a href="https://gist.github.com/DanielSerdyukov/188d47e29150622352f1" target="_blank" rel="noopener">https://gist.github.com/DanielSerdyukov/188d47e29150622352f1</a> 以及之前编译libuv的教程</h2><p>目前进入bo分支<br>删除原’cc/cube-mario/source/actuator/inspector’，并根据报错删去所有引用即可，rebuild一下<br>在同位置倒入inspector文件夹， git add， 以及修改cmakelist, 将inspector目录下的文件也加入编译行列<br>rebuild， 根据报错，需引入静态库<br>编译完成所有第三方库的arm和armv7版本的静态库以后<br>复制到/cube/libs/armeabi及/cube/libs/armeabi-v7a<br>头文件加入到/cube/src/main/cc/cube-mario/3rd/下</p>
+<p>Link libuv to Android project error:src/unix/linux-core.c:508: error: undefined reference to ‘getpagesize’<br>reason: The minimum required platform version is android-21<br>solution: change minSdkVersion to 21<br>参考<a href="https://github.com/libuv/libuv/pull/633和" target="_blank" rel="noopener">https://github.com/libuv/libuv/pull/633和</a><br><a href="https://github.com/libuv/libuv/pull/633/commits/9bc3ecdc40ba331b8af382e9a1f239e44befbcd5" target="_blank" rel="noopener">https://github.com/libuv/libuv/pull/633/commits/9bc3ecdc40ba331b8af382e9a1f239e44befbcd5</a></p>
+<p>又出现报错：src/unix/udp.c:411: error: undefined reference to ‘in6addr_any’<br>参考<a href="https://github.com/libuv/libuv/pull/1433" target="_blank" rel="noopener">https://github.com/libuv/libuv/pull/1433</a><br>最后将minSdkVersion调到24</p>
+<p>error: undefined reference to ‘icu_64::UnicodeString::<del>UnicodeString()’<br>参考：<a href="https://stackoverflow.com/questions/35246695/undefined-reference-to-icu-56unicodestringunicodestringsigned-char-unsign/35600138" target="_blank" rel="noopener">https://stackoverflow.com/questions/35246695/undefined-reference-to-icu-56unicodestringunicodestringsigned-char-unsign/35600138</a><br>这是由于查找函数时附上版本号造成<br>编译时加上–disable-renaming， 修改 unicode/uconfig.h， 并在使用库的代码中include unicode/uconfig.h<br>但依然报错：error: undefined reference to ‘icu::UnicodeString::</del>UnicodeString()’<br>去掉前缀依然报错<br>参考readme.html ，修改uversion.h 依然报错<br>改成icu 56的版本，依然报错<br>怀疑是icu编译的两个静态库之间相互有依赖，库顺序导致问题，更改顺序后<br>尝试用cAPI, 避开析构函数，结果其中一个函数找不到undefined references<br>实在解决不了这个库的报错，怀疑在android上的兼容性有问题<br>最后选择用比较粗暴的方式代替了库的功能，将uint16_t<em>与uint8_t</em>字符串之间强行转换<br>最后删除与network重用开源代码<br>最终成功运行</p>
+<p>但加入inpector后的代码运行crash<br>尝试用LLDB进行调试 c/c++代码</p>
+<p>chrome插件 nim</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/02/git相关/" rel="next" title="git相关">
+                <i class="fa fa-chevron-left"></i> git相关
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/15/algorithm/" rel="prev" title="algorithm">
+                algorithm <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-调试"><span class="nav-number">1.</span> <span class="nav-text">chrome 调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome-devtools"><span class="nav-number">2.</span> <span class="nav-text">chrome devtools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDT-V8"><span class="nav-number">3.</span> <span class="nav-text">CDT V8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v8-inspector移植入安卓端小游戏引擎"><span class="nav-number">4.</span> <span class="nav-text">v8-inspector移植入安卓端小游戏引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译libuv-的android-arm-arm64版本"><span class="nav-number">4.1.</span> <span class="nav-text">编译libuv 的android  arm , arm64版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译openssl的-android-arm-arm64版本"><span class="nav-number">4.2.</span> <span class="nav-text">编译openssl的 android arm arm64版本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#error-openssl-assert-h-No-such-file-or-directory-include-lt-assert-h-gt"><span class="nav-number">4.2.1.</span> <span class="nav-text">error openssl assert.h: No such file or directory #include &lt;assert.h&gt;</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最终方案：参考https-stackoverflow-com-questions-52717228-how-to-compile-openssl-1-1-1-for-android"><span class="nav-number">4.3.</span> <span class="nav-text">最终方案：参考https://stackoverflow.com/questions/52717228/how-to-compile-openssl-1-1-1-for-android</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方案"><span class="nav-number">4.3.1.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#libZ"><span class="nav-number">4.4.</span> <span class="nav-text">libZ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#icu"><span class="nav-number">4.5.</span> <span class="nav-text">icu</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#参考-icu-master-icu4c-readme-html-及https-gist-github-com-DanielSerdyukov-188d47e29150622352f1-以及之前编译libuv的教程"><span class="nav-number"></span> <span class="nav-text">参考/icu-master/icu4c/readme.html 及https://gist.github.com/DanielSerdyukov/188d47e29150622352f1 以及之前编译libuv的教程</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
